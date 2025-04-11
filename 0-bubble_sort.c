@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "sort.h"
 
 /**
@@ -10,10 +9,13 @@
  *
  * Description: Prints the array after each swap of two elements.
  */
+
 void bubble_sort(int *array, size_t size)
 {
 	size_t i;
+
 	int temp;
+
 	int swapped = 1;
 
 	if (array == NULL || size < 2)
