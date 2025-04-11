@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "sort.h"
-
 /**
  * insertion_sort_list - Sorts a doubly linked list
  * in ascending order using Insertion sort
  * @list: Double pointer to the head of the list
  */
-void insertion_sort_list(listint_t **list)
+
+ void insertion_sort_list(listint_t **list)
 {
     listint_t *current, *prev, *next, *temp;
 
