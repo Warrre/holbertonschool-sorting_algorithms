@@ -3,79 +3,72 @@
 #include "sort.h"
 
 /**
- * quick_sort - Sorts an array of integers
- * in ascending order using Quick sort
- * @array: The array to be sorted
- * @size: The number of elements in the array
+ * lomuto_partition - Partition the array using Lomuto scheme
+ * @array: The array to be partitioned
+ * @low: The starting index of the partition
+ * @high: The ending index of the partition
+ * @size: The size of the array
+ *
+ * Return: The index of the pivot element
  */
-
- void quick_sort(int *array, size_t size)
+static int lomuto_partition(int *array, int low, int high, size_t size)
 {
-    if (array == NULL || size < 2)
-        return;
+    int pivot = array[high];
+    int i = low - 1;
+    int temp;
 
-    quick_sort_recursive(array, 0, size - 1, size);
-}
-
-/**
- * quick_sort_recursive - Recursive function for quick_sort
- * @array: The array to be sorted
- * @low: The start index of the sub-array
- * @high: The end index of the sub-array
- * @size: The total size of the array
- */
-
- void quick_sort_recursive(int *array, int low, int high, size_t size)
-{
-    int pivot;
-
-    if (low < high)
-    {
-        pivot = lomuto_partition(array, low, high, size);
-        quick_sort_recursive(array, low, pivot - 1, size);
-        quick_sort_recursive(array, pivot + 1, high, size);
-    }
-}
-
-/**
- * lomuto_partition - Applies Lomuto partition
- * scheme to a sub-array
- * @array: The array to partition
- * @low: The start index of the sub-array
- * @high: The end index (pivot)
- * @size: The total size of the array
- * Return: Final position of the pivot
- */
-
- int lomuto_partition(int *array, int low, int high, size_t size)
-{
-    int pivot, i, j, temp;
-
-    pivot = array[high];
-    i = low - 1;
-
-    for (j = low; j < high; j++)
+    for (int j = low; j < high; j++)
     {
         if (array[j] < pivot)
         {
             i++;
-            if (i != j && array[i] != array[j])
+            if (i != j)
             {
-                temp = array[j];
-                array[j] = array[i];
-                array[i] = temp;
+                temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
                 print_array(array, size);
             }
         }
     }
 
-    if ((i + 1) != high && array[i + 1] != array[high])
+    if (array[high] < array[i + 1])
     {
-        temp = array[high];
-        array[high] = array[i + 1];
-        array[i + 1] = temp;
+        temp = array[i + 1];
+        array[i + 1] = array[high];
+        array[high] = temp;
         print_array(array, size);
     }
 
     return (i + 1);
+}
+
+/**
+ * quick_sort_recursive - Recursively sorts the array using Quick sort
+ * @array: The array to be sorted
+ * @low: The starting index of the partition
+ * @high: The ending index of the partition
+ * @size: The size of the array
+ */
+static void quick_sort_recursive(int *array, int low, int high, size_t size)
+{
+    if (low < high)
+    {
+        int pivot_index = lomuto_partition(array, low, high, size);
+        quick_sort_recursive(array, low, pivot_index - 1, size);
+        quick_sort_recursive(array, pivot_index + 1, high, size);
+    }
+}
+
+/**
+ * quick_sort - Sorts an array using the Quick sort algorithm
+ * @array: The array to be sorted
+ * @size: The number of elements in the array
+ */
+void quick_sort(int *array, size_t size)
+{
+    if (array == NULL || size < 2)
+        return;
+
+    quick_sort_recursive(array, 0, (int)size - 1, size);
 }
