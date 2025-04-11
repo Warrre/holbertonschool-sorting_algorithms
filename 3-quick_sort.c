@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "sort.h"
+
 /**
  * quick_sort - Sorts an array of integers in ascending order
  *              using the Quick sort algorithm (Lomuto partition)
  * @array: The array to sort
  * @size: Number of elements in the array
  */
-
- void quick_sort(int *array, size_t size)
+void quick_sort(int *array, size_t size)
 {
 	if (array == NULL || size < 2)
 		return;
@@ -23,8 +23,7 @@
  * @high: End index of the sub-array
  * @size: Total size of the array (for printing)
  */
-
- void quick_sort_recursive(int *array, int low, int high, size_t size)
+void quick_sort_recursive(int *array, int low, int high, size_t size)
 {
 	int pivot;
 
@@ -45,8 +44,7 @@
  *
  * Return: Final position of the pivot
  */
-
- int lomuto_partition(int *array, int low, int high, size_t size)
+int lomuto_partition(int *array, int low, int high, size_t size)
 {
 	int pivot, i, j, temp;
 
@@ -60,6 +58,7 @@
 			i++;
 			if (i != j && array[i] != array[j])
 			{
+				/* Swap elements */
 				temp = array[j];
 				array[j] = array[i];
 				array[i] = temp;
@@ -68,6 +67,7 @@
 		}
 	}
 
+	/* Swap pivot element to its correct position */
 	if ((i + 1) != high && array[i + 1] != array[high])
 	{
 		temp = array[high];
