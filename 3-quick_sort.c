@@ -3,27 +3,30 @@
 #include "sort.h"
 
 /**
- * quick_sort - Sorts an array using Quick sort (Lomuto partition)
- * @array: The array to sort
- * @size: Number of elements in the array
+ * quick_sort - Sorts an array of integers
+ * in ascending order using Quick sort
+ * @array: The array to be sorted
+ * @size: The number of elements in the array
  */
 void quick_sort(int *array, size_t size)
 {
     if (array == NULL || size < 2)
         return;
+
     quick_sort_recursive(array, 0, size - 1, size);
 }
 
 /**
- * quick_sort_recursive - Recursive helper for quick_sort
- * @array: The array to sort
- * @low: Start index of the sub-array
- * @high: End index of the sub-array
- * @size: Total size of the array
+ * quick_sort_recursive - Recursive function for quick_sort
+ * @array: The array to be sorted
+ * @low: The start index of the sub-array
+ * @high: The end index of the sub-array
+ * @size: The total size of the array
  */
 void quick_sort_recursive(int *array, int low, int high, size_t size)
 {
     int pivot;
+
     if (low < high)
     {
         pivot = lomuto_partition(array, low, high, size);
@@ -33,16 +36,21 @@ void quick_sort_recursive(int *array, int low, int high, size_t size)
 }
 
 /**
- * lomuto_partition - Applies Lomuto partition scheme
+ * lomuto_partition - Applies Lomuto partition
+ * scheme to a sub-array
  * @array: The array to partition
- * @low: Start index of sub-array
- * @high: End index (pivot)
- * @size: Total size of the array (for printing)
+ * @low: The start index of the sub-array
+ * @high: The end index (pivot)
+ * @size: The total size of the array
  * Return: Final position of the pivot
  */
 int lomuto_partition(int *array, int low, int high, size_t size)
 {
-    int pivot = array[high], i = low - 1, j, temp;
+    int pivot, i, j, temp;
+
+    pivot = array[high];
+    i = low - 1;
+
     for (j = low; j < high; j++)
     {
         if (array[j] < pivot)
@@ -57,6 +65,7 @@ int lomuto_partition(int *array, int low, int high, size_t size)
             }
         }
     }
+
     if ((i + 1) != high && array[i + 1] != array[high])
     {
         temp = array[high];
@@ -64,5 +73,6 @@ int lomuto_partition(int *array, int low, int high, size_t size)
         array[i + 1] = temp;
         print_array(array, size);
     }
+
     return (i + 1);
 }
