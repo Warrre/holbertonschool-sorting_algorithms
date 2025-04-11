@@ -3,12 +3,14 @@
 #include "sort.h"
 
 /**
- * insertion_sort_list - Sorts a doubly linked list of integers
- *                       in ascending order using Insertion sort
- * @list: Double pointer to the head of the list
+ * insertion_sort_list - Sorts a doubly linked list
+ * of integers
+ * in ascending order using Insertion sort
+ * @list: Double pointer
+ * to the head of the list
  *
  * Description: Swaps nodes, not values.
- *              Prints the list after each swap.
+ * Prints the list after each swap.
  */
 void insertion_sort_list(listint_t **list)
 {

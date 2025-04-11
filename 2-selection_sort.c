@@ -3,13 +3,15 @@
 #include <stdlib.h>
 
 /**
- * selection_sort - Sorts an array of integers in ascending order
- *                  using the Selection sort algorithm
+ * selection_sort - Sorts an array of integers
+ * in ascending order
+ * using the Selection sort algorithm
  *
  * @array: The array to be sorted
  * @size: The number of elements in the array
  *
- * Description: Prints the array after each swap of two elements.
+ * Description: Prints the array
+ * after each swap of two elements.
  */
 void selection_sort(int *array, size_t size)
 {
@@ -34,7 +36,7 @@ void selection_sort(int *array, size_t size)
 			temp = array[min_idx];
 			array[min_idx] = array[i];
 			array[i] = temp;
-			print_array(array, size);  // print_array should be declared in sort.h
+			print_array(array, size);
 		}
 	}
 }
