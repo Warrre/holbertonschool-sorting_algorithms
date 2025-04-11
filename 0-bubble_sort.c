@@ -7,10 +7,6 @@
  * in ascending order
  * @array: The array to be sorted
  * @size: Number of elements in @array
- *
- * Description: Uses the Bubble
- * sort algorithm to sort the array.
- * Prints the array after each swap.
  */
 
 void bubble_sort(int *array, size_t size)

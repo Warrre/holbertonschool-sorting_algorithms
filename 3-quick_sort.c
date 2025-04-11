@@ -38,12 +38,15 @@ void quick_sort_recursive(int *array, int low, int high, size_t size)
 }
 
 /**
- * lomuto_partition - Applies Lomuto partition
+ * lomuto_partition -
+ * Applies Lomuto partition
  * scheme to a sub-array
  * @array: The array to partition
- * @low: Starting index of the sub-array
+ * @low: Starting index of
+ * the sub-array
  * @high: Ending index (pivot)
- * @size: Total size of the array (for printing)
+ * @size: Total size of
+ * the array (for printing)
  *
  * Return: Final position of the pivot
  */

@@ -8,9 +8,6 @@
  * in ascending order using Insertion sort
  * @list: Double pointer
  * to the head of the list
- *
- * Description: Swaps nodes, not values.
- * Prints the list after each swap.
  */
 void insertion_sort_list(listint_t **list)
 {
