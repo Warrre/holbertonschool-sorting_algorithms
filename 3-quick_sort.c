@@ -20,7 +20,7 @@ void swap(int *a, int *b)
  * @size: size of the array
  * Return: index of the pivot
  */
-int partition(int arr[], size_t low, size_t high, size_t size)
+int lomuto_partition(int arr[], size_t low, size_t high, size_t size)
 {
 	int pivot = arr[high];
 	size_t i = low - 1;
