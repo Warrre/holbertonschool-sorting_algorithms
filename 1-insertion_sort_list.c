@@ -1,17 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "sort.h"
+
 /**
  * insertion_sort_list - Sorts a doubly linked list of integers
  *                       in ascending order using Insertion sort
- *
  * @list: Double pointer to the head of the list
  *
  * Description: Swaps nodes, not values.
  *              Prints the list after each swap.
  */
-
- void insertion_sort_list(listint_t **list)
+void insertion_sort_list(listint_t **list)
 {
 	listint_t *current, *prev, *next, *temp;
 
