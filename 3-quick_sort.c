@@ -7,7 +7,8 @@
  * @array: The array to sort
  * @size: Number of elements in the array
  */
-void quick_sort(int *array, size_t size)
+
+ void quick_sort(int *array, size_t size)
 {
 	if (array == NULL || size < 2)
 		return;
@@ -22,7 +23,8 @@ void quick_sort(int *array, size_t size)
  * @high: End index of the sub-array
  * @size: Total size of the array (for printing)
  */
-void quick_sort_recursive(int *array, int low, int high, size_t size)
+
+ void quick_sort_recursive(int *array, int low, int high, size_t size)
 {
 	int pivot;
 
@@ -43,7 +45,8 @@ void quick_sort_recursive(int *array, int low, int high, size_t size)
  *
  * Return: Final position of the pivot
  */
-int lomuto_partition(int *array, int low, int high, size_t size)
+
+ int lomuto_partition(int *array, int low, int high, size_t size)
 {
 	int pivot, i, j, temp;
 

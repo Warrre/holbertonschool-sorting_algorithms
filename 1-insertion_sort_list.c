@@ -10,7 +10,8 @@
  * Description: Swaps nodes, not values.
  *              Prints the list after each swap.
  */
-void insertion_sort_list(listint_t **list)
+
+ void insertion_sort_list(listint_t **list)
 {
 	listint_t *current, *prev, *next, *temp;
 
